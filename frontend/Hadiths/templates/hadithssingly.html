@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حديث</title>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        /* Additional style for right alignment if needed */
+        .text-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">حديث</h1>
+
+        {% if data.error %}
+            <div class="alert alert-danger text-right" role="alert">
+                {{ data.error }}
+            </div>
+        {% else %}
+            <div class="card">
+                <div class="card-body text-right"> <!-- Added text-right class here -->
+                    <h5 class="card-title">الراوي: {{ data.narrator }}</h5>
+                    <p class="card-text">{{ data.text }}</p>
+                    {% if data.explantion %}
+                        <p class="card-text "><small class="text-muted">الشرح: {{ data.explantion }}</small></p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
