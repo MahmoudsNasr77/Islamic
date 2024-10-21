@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حديث</title>
-    {% load bootstrap4 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    <style>
-        /* Additional style for right alignment if needed */
-        .text-right {
-            text-align: right;
-        }
-    </style>
-</head>
+{% extends 'base.html' %}
+
+{% block title %}{{ data.narrator }} {% endblock %}
+
+{% block content %}
 <body>
     <div class="container mt-5">
         <h1 class="mb-4 text-center">حديث</h1>
@@ -33,6 +22,5 @@
                 </div>
             </div>
         {% endif %}
-    </div>
-</body>
-</html>
+{%endblock%}
+

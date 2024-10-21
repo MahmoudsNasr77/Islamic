@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أحاديث نبوية</title>
-    {% load bootstrap4 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    <style>
-        /* Additional style for right alignment if needed */
-        .text-right {
-            text-align: right;
-        }
-    </style>
-</head>
+{% block title %}جميع الأحاديث{% endblock %}
 
-<body>
+{% block content %}
+
     <div class="container mt-5"> <!-- Container with top margin -->
         <h1 class="mb-4 text-center">أحاديث نبوية</h1>
         <div class="row">
@@ -33,10 +20,6 @@
             {% endfor %}
         </div>
     </div>
+    {% endblock %}
 
-    <footer class="text-center mt-5">
-        <p>© 2024 جميع الحقوق محفوظة.</p>
-    </footer>
-</body>
 
-</html>
