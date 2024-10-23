@@ -16,8 +16,11 @@
                 <div class="card-body text-right"> <!-- Added text-right class here -->
                     <h5 class="card-title">الراوي: {{ data.narrator }}</h5>
                     <p class="card-text">{{ data.text }}</p>
+                    <p class="card-text">{{ data.hadithstype }}</p>
+                    
                     {% if data.explantion %}
                         <p class="card-text "><small class="text-muted">الشرح: {{ data.explantion }}</small></p>
+
                     {% endif %}
                 </div>
             </div>

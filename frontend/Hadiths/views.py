@@ -20,3 +20,40 @@ def display_hadiths(request, id):
         data = {"error": "Unable to fetch data from API"}
 
     return render(request, 'hadithssingly.html', {'data': data})
+
+def Home(request):
+    return render(request,'Home.html')
+
+def Bukhari(request):
+    try:
+        response = requests.get('http://127.0.0.1:8000/api/')
+        response.raise_for_status()  # Check if request was successful
+        data = response.json()  # Parse the JSON data
+    except requests.exceptions.RequestException as e:
+        # Handle the exception
+        data = {"error": "Unable to fetch data from API"}
+
+    return render(request, 'narrator/بخاري.html', {'data': data})
+
+def Muslim(request):
+    try:
+        response = requests.get('http://127.0.0.1:8000/api/')
+        response.raise_for_status()  # Check if request was successful
+        data = response.json()  # Parse the JSON data
+    except requests.exceptions.RequestException as e:
+        # Handle the exception
+        data = {"error": "Unable to fetch data from API"}
+
+    return render(request, 'narrator/مسلم.html', {'data': data})
+
+def Tirmidhi(request):
+    try:
+        response = requests.get('http://127.0.0.1:8000/api/')
+        response.raise_for_status()  # Check if request was successful
+        data = response.json()  # Parse the JSON data
+    except requests.exceptions.RequestException as e:
+        # Handle the exception
+        data = {"error": "Unable to fetch data from API"}
+
+    return render(request, 'narrator/ترمذي.html', {'data': data})
+    

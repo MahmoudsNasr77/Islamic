@@ -1,6 +1,7 @@
 from rest_framework import generics
 from Hadiths.models import Hadith
 from .serializers import HadithSerializer
+from rest_framework import serializers
 class HadithAPIView(generics.ListAPIView):
     queryset = Hadith.objects.all()
     serializer_class = HadithSerializer
@@ -15,4 +16,6 @@ class HadithRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Hadith.objects.all()
     serializer_class = HadithSerializer
     lookup_field='id'
-    
+class HadithNarratorAPIView(generics.ListAPIView):
+    queryset = Hadith.objects.all()
+    serializer_class = HadithSerializer

@@ -13,6 +13,8 @@
                     <div class="card-body">
                         <h5 class="card-title">الراوي: {{ d.narrator }}</h5>
                         <p class="card-text">{{ d.text }}</p>
+                        <p class="card-text">حديث {{ d.hadithstype }} </p>
+                        
                         <p> <a href="{% url 'Hadiths:display_hadiths' id=d.id %}">الشرح</a></p>
                     </div>
                 </div>

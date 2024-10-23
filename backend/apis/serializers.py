@@ -3,4 +3,4 @@ from Hadiths.models import Hadith
 class HadithSerializer(serializers.ModelSerializer):
     class Meta:
          model = Hadith
-         fields = ('id',"narrator", "text", "explantion")
+         fields = ('id',"narrator", "text", "explantion",'hadithstype')

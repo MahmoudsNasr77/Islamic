@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}الترمذي {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-12 offset-md-2">
+        <h2 class="text-center">الإمام الترمذي</h2>
+        <p class="text-justify">
+            سنن الترمذي جمعه الإمام أبو عيسى محمد الترمذي هذا الكتاب اشتهر أيضا باسم «جامع الترمذي»، ألفه الترمذي على أبواب الفقه، وأودع فيه الصحيح والحسن والضعيف، مبينا درجة كل حديث في موضعه مع بيان وجه الضعف، واعتنى ببيان من أخذ به من أهل العلم من الصحابة وغيرهم، وجعل في آخره كتابا في «العلل» جمع فيه فوائد هامة.
+
+قال الترمذي: «وجميع ما في هذا الكتاب من الحديث فهو معمول به، وقد أخذ به بعض العلماء ما خلا حديثين: حديث ابن عباس أن النبي صلى الله عليه وسلم جمع بين الظهر والعصر بالمدينة والمغرب والعشاء من غير خوف ولا سفر، وحديث: إذا شرب فاجلدوه، فإن عاد في الرابعة فاقتلوه».
+
+وقد جاء في هذا الكتاب من الفوائد الفقهية والحديثية ما ليس في غيره واستحسنه علماء الحجاز والعراق وخراسان حين عرضه مؤلفه عليهم، هذا وقد قال ابن رجب الحنبلي: «اعلم أن الترمذي خرج في كتابه الصحيح والحسن والغريب، والغرائب التي خرجها فيها بعض المنكر، ولا سيما في كتاب الفضائل، ولكنه يبين ذلك غالبا، ولا أعلم أنه خرج عن متهم بالكذب، متفق على اتهامه بإسناد منفرد، نعم قد يخرج عن سيئ الحفظ ومن غلب على حديثه الوهن، ويبين ذلك غالبا، ولا يسكت عنه».
+        </p>
+      </div>
+    </div>
+  </div>
+
+    <div class="container mt-5"> <!-- Container with top margin -->
+        <h2 class="mb-4 text-right text-muted">أحاديث الترمذي</h2>
+        
+        <div class="row">
+
+            {% for d in data %}
+            {% if d.narrator == 'الترمذي' %}
+            <div class="col-md-4 mb-4"> <!-- Responsive columns with bottom margin -->
+                <div class="card h-100 text-right"> <!-- Card component -->
+                    <div class="card-body">
+                        <h5 class="card-title">الراوي: {{ d.narrator }}</h5>
+                        <p class="card-text">{{ d.text }}</p>
+                        <p class="card-text">حديث {{ d.hadithstype }} </p>
+       
+                    <p> <a href="{% url 'Hadiths:display_hadiths' id=d.id %}">الشرح</a></p>
+          
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-12 offset-md-2 text-right">
+            <h5>المصادر</h5>
+            <ul>
+              <li><a href="https://ar.wikipedia.org/wiki/%D8%B3%D9%86%D9%86_%D8%A7%D9%84%D8%AA%D8%B1%D9%85%D8%B0%D9%8A">سنن الترمذي - ويكيبيديا</a></li>
+              <li><a href="https://surahquran.com/Hadith-book/%D8%B5%D8%AD%D9%8A%D8%AD+%D8%A7%D9%84%D8%AA%D8%B1%D9%85%D8%B0%D9%8A">  
+                سنن الترمذي </a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endblock %}

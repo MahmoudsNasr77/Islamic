@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}البخاري {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-12 offset-md-2">
+        <h2 class="text-center">الإمام البخاري</h2>
+        <p class="text-justify">
+          هو إمام المحدثين أبو عبد الله محمد بن إسماعيل البخاري ولد في مدينة بخارى سنة 194 هـ. صحيح البخاري جمعه الإمام محمد بن إسماعيل البخاري، وسماه مؤلفه «الجامع المسند الصحيح المختصر من أمور رسول الله وسننه وأيامه» وخرجه من ستمائة ألف حديث، وتعب في تنقيحه وتهذيبه والتحري في صحته، حتى كان لا يضع فيه حديثا إلا اغتسل وصلى ركعتين يستخير الله في وضعه، ولم يضع فيه مسندا إلا ما صح عن رسول الله ﷺ بالسند المتصل الذي توفر في رجاله العدالة والضبط. وأكمل تأليفه في ستة عشر عاما، ثم عرضه على الإمام أحمد بن حنبل ويحيى بن معين وعلي بن المديني وغيرهم، فاستحسنوه وشهدوا له بالصحة، وقد تلقاه العلماء بالقبول في كل عصر، فقد قال الحافظ الذهبي: «هو أجل كتب الإسلام، وأفضلها بعد كتاب الله». عدد أحاديثه بالمكرر (7397) سبعة وتسعون وثلاثمائة وسبعة آلاف حديث، وبحذف المكرر يبلغ (2602) اثنان وستمائة وألفا حديث، كما حرر ذلك الحافظ ابن حجر.سبب تصنيف صحيح البخاري.وقد كان الباعث علي تصنيف هذا الديوان العظيم ان الامام البخاري كان جالسا عند استاذه إسحاق بن راهويه فسمعه يقول «لو جمعتم كتابا مختصرا لصحيح سنة رسول الله» قال البخاري فوقع ذلك في قلبي فاخذت في جمع الجامع الصحيح.
+        </p>
+      </div>
+    </div>
+  </div>
+
+    <div class="container mt-5"> <!-- Container with top margin -->
+        <h2 class="mb-4 text-right text-muted">أحاديث البخاري</h2>
+        
+        <div class="row">
+
+            {% for d in data %}
+            {% if d.narrator == 'البخاري' %}
+            <div class="col-md-4 mb-4"> <!-- Responsive columns with bottom margin -->
+                <div class="card h-100 text-right"> <!-- Card component -->
+                    <div class="card-body">
+                        <h5 class="card-title">الراوي: {{ d.narrator }}</h5>
+                        <p class="card-text">{{ d.text }}</p>
+                        <p class="card-text">حديث {{ d.hadithstype }} </p>
+       
+                    <p> <a href="{% url 'Hadiths:display_hadiths' id=d.id %}">الشرح</a></p>
+          
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-12 offset-md-2 text-right">
+            <h5>المصادر</h5>
+            <ul>
+              <li><a href="https://ar.wikipedia.org/wiki/%D8%B5%D8%AD%D9%8A%D8%AD_%D8%A7%D9%84%D8%A8%D8%AE%D8%A7%D8%B1%D9%8A">صحيح البخاري - ويكيبيديا</a></li>
+              <li><a href="https://www.bukhari-pedia.net/">موسوعة صحيح البخاري
+                الشاملة </a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
